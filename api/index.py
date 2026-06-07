@@ -5,7 +5,6 @@ import numpy as np
 
 app = FastAPI()
 
-# CORS (required by question)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -18,7 +17,7 @@ class RequestBody(BaseModel):
     threshold_ms: float
 
 @app.post("/")
-def compute_metrics(payload: RequestBody):
+def compute(payload: RequestBody):
     result = {}
 
     for region in payload.regions:
